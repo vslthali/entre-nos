@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Entre Nós</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fef9f4;
+      color: #333;
+      text-align: center;
+      padding: 30px;
+      transition: all 0.5s ease;
+    }
+
+    h1 {
+      color: #e07a5f;
+      font-size: 2em;
+    }
+
+    .fase {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .avatares {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+      gap: 40px;
+    }
+
+    .avatar {
+      width: 150px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .botao {
+      margin-top: 40px;
+      background-color: #81b29a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .botao:hover {
+      background-color: #6b9f87;
+    }
+  </style>
+</head>
+<body>
+  <div class="fase" id="fase1">
+    <h1>Bem-vindos ao jogo Entre Nós!</h1>
+    <p>Um joguinho feito com carinho pra fortalecer nossa conexão.</p>
+
+    <div class="avatares">
+      <div>
+        <img src="avatar-menino.png" alt="Menino" class="avatar">
+        <p>Moreno, cabelo cacheado, blusa azul da Nike, calça larga preta, tênis branco</p>
+      </div>
+      <div>
+        <img src="avatar-menina.png" alt="Menina" class="avatar">
+        <p>Branca, cabelo cacheado, vestido azul florido, tênis branco</p>
+      </div>
+    </div>
+
+    <button class="botao" onclick="proximaFase()">Começar!</button>
+  </div>
+
+  <div class="fase" id="fase2" style="display:none;">
+    <h1>Fase 1: Admiração</h1>
+    <p>Compartilhe algo que você admira no outro.</p>
+    <button class="botao" onclick="alert('Resposta anotada! Em breve mais interações!')">Responder</button>
+  </div>
+
+  <script>
+    function proximaFase() {
+      const fase1 = document.getElementById('fase1');
+      const fase2 = document.getElementById('fase2');
+
+      fase1.classList.add('fade-out');
+      setTimeout(() => {
+        fase1.style.display = 'none';
+        fase2.style.display = 'block';
+      }, 500);
+    }
+  </script>
+</body>
+</html>
